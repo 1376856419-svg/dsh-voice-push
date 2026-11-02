@@ -1,0 +1,54 @@
+{
+  "name": "dsh-voice-push",
+  "version": "0.1.0",
+  "description": "Push-to-talk voice input and read-aloud for DeepSeek Harness: double-tap Alt to dictate, release to send, configurable hotkey to read replies (ASR: SiliconFlow / Groq / MiMo / custom; TTS: Edge / MiMo / custom).",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "default": "./lib/client.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ],
+      "platform": "web",
+      "immediately": true
+    }
+  },
+  "dependencies": {
+    "ws": "^8.21.3"
+  },
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "plugin",
+    "voice",
+    "push-to-talk",
+    "dictation",
+    "stt",
+    "tts",
+    "edge-tts",
+    "voice-input"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT"
+}
